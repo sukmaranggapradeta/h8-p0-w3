@@ -6,7 +6,9 @@ function groupAnimals(animals) {
   // you can only write your code here!
   var deretanHuruf = "abcdefghijklmnopqrstuvwxyz"
   var urutanBinatang = [];
-
+  var grubBinatang = [];
+  var indeks = 0;
+ 
   for (var x = 0 ; x < deretanHuruf.length ; x++){
       for (var i = 0 ;i<animals.length ;i++){
         var hurufDepan = animals[i].substr(0,1)
@@ -16,7 +18,18 @@ function groupAnimals(animals) {
         }
       }
     }
-  return urutanBinatang 
+  //return urutanBinatang 
+
+ for (var i = 0; i < urutanBinatang.length; i++) {
+   if (grubBinatang.length === 0) {
+     grubBinatang.push([urutanBinatang[i]]);
+   } else if (grubBinatang[indeks][0][0] === urutanBinatang[i][0]) {
+     grubBinatang[indeks].push(urutanBinatang[i]);
+   } else {
+     grubBinatang.push([urutanBinatang[i]]);
+     indeks++;
+   }
+  } return grubBinatang;
 }
 
 // TEST CASES
